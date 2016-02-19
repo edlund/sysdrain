@@ -283,10 +283,10 @@ static void prepare(struct sysdrainoptions& sdopts)
 	::sysinfo(&sysi);
 	free_ram = sysi.freeram;
 #else
-    MEMORYSTATUSEX status;
-    status.dwLength = sizeof(status);
-    ::GlobalMemoryStatusEx(&status);
-    free_ram = status.ullTotalPhys;
+	MEMORYSTATUSEX status;
+	status.dwLength = sizeof(status);
+	::GlobalMemoryStatusEx(&status);
+	free_ram = status.ullTotalPhys;
 #endif
 	message(VERBOSITY_1, "\n");
 	message(VERBOSITY_1, "free ram: %llu", free_ram);
